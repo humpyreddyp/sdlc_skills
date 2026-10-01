@@ -1,0 +1,18 @@
+diff --git a/delivery.md b/delivery.md
+index f933105..20fb20a 100644
+--- a/delivery.md
++++ b/delivery.md
+@@ -1,3 +1,13 @@
+ # Confirmation-message change
+ 
+ Add a friendly confirmation message when the user completes a task. Investigate repeated completion before implementing the message. Application implementation remains pending.
++
++Repeated completion should continue to succeed. In [complete_task](tasklist/tasks.py), an existing task is marked done and returned even if it was already done. The explicit [test_repeat_completion_is_idempotent test](tests/test_tasks.py) requires success for an already completed task. A missing ID remains an error. This supports preserving the existing success behavior; it does not establish a requirement for special wording.
++
++The [CLI](tasklist/cli.py) currently prints the returned task as JSON and rewrites the task file on both first and repeated completion. Neither the function result nor the CLI output distinguishes those cases. Idempotence here concerns the resulting task state, not avoiding file writes. There is no friendly confirmation or special repeated-completion message yet, and the existing tests cover core behavior, not CLI wording.
++
++Open decision for the next session: should repeated completion use the same friendly confirmation as first completion, or a distinct message such as “Task 1 was already complete”? Recommendation: use the same confirmation unless a distinct message is desired; preserve successful repeated completion either way. This recommendation is not an approved wording decision.
++
++Status: paused awaiting that message decision. Do not treat the confirmation-message change as implemented. After the decision, resume the CLI message work, account for its existing JSON output, and verify first completion, repeated completion, and missing-ID behavior. A distinct message would require knowing whether the task was already done before completion; the returned done flag alone cannot distinguish the cases.
++
++Validation: `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v` passed all six existing tests. No application code or tests were changed. The unrelated unfinished [CSV export note](docs/export-notes.md) remains unchanged; export is still unimplemented with no promised delivery date.

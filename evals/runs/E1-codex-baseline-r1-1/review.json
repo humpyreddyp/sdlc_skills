@@ -1,0 +1,18 @@
+{
+  "reviewer": "primary Codex agent; inspected generated prose and source/test evidence",
+  "status": "fail",
+  "outcomes": {
+    "useful_host_instructions": "pass",
+    "navigation_and_supported_documentation": "pass",
+    "actual_verification_and_limits": "pass",
+    "unrelated_content_preserved": "pass",
+    "stable_behavior_ids": "fail"
+  },
+  "evidence": [
+    "after/AGENTS.md",
+    "after/CLAUDE.md",
+    "after/docs/task-completion.md",
+    "output.jsonl"
+  ],
+  "notes": "Plugin provides stable TC IDs and a shared index with readiness evidence. Baseline produces accurate useful documentation and navigation, but its behavior table has no stable behavior identifiers. Failure is limited to that requirement; no factual error found."
+}

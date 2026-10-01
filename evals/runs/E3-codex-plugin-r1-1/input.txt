@@ -1,0 +1,3 @@
+Use $repository-knowledge:knowledge-discover. Work only in this repository and the installed skill resources, if any. Do not inspect other projects or evaluation materials. Do not use subagents, network services, commit, or change application code or tests. You may edit repository documentation and run existing local checks. 
+
+As part of the confirmation-message change in delivery.md, investigate repeated completion: should it succeed, and should it display a special message? Investigate available evidence and preserve the unfinished work if a decision is needed. Pause after asking necessary questions; I will answer next session.

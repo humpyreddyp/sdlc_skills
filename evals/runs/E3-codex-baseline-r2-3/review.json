@@ -1,0 +1,11 @@
+{
+  "status": "fail",
+  "reviewer": "primary Codex agent; inspected generated documents and before/after changes",
+  "notes": "Publishes the confirmed message requirement accurately, but retains the resolved implementation explanation in delivery.md rather than published capability knowledge; no stable behavior table.",
+  "evidence": [
+    "before/",
+    "after/",
+    "output.jsonl",
+    "signals.json"
+  ]
+}

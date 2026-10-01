@@ -1,0 +1,11 @@
+{
+  "status": "fail",
+  "reviewer": "primary Codex agent; inspected generated documents and before/after changes",
+  "notes": "The repeat invocation adds redundant function-migration prose and index detail with no source/requirement change; correctness is preserved but no-churn requirement fails.",
+  "evidence": [
+    "before/",
+    "after/",
+    "output.jsonl",
+    "signals.json"
+  ]
+}

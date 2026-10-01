@@ -1,0 +1,19 @@
+{
+  "name": "repository-knowledge",
+  "version": "0.1.1+codex.20261001145433",
+  "description": "Prepare repositories, publish supported knowledge, resume investigations, and maintain explanations after changes.",
+  "author": {
+    "name": "humpyreddyp"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Repository Knowledge",
+    "shortDescription": "Discover and maintain repository knowledge",
+    "longDescription": "Prepare repository guidance, publish evidence-backed explanations, resume unfinished investigations, and update knowledge after changes.",
+    "developerName": "humpyreddyp",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Prepare this repository for the requested work and publish supported knowledge."
+  },
+  "repository": "https://github.com/humpyreddyp/sdlc_skills"
+}

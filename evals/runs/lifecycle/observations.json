@@ -1,0 +1,9 @@
+{
+  "observations": [
+    "Initial local marketplace registration and 0.1.0 plugin installation succeeded in both hosts during this task; command results were observed in the conversation, not copied into this evidence directory.",
+    "Changed-version update to 0.1.1 succeeded in both hosts. Inventory checks and installed package paths corroborate the update; see codex-update-verification.json and claude-update-verification.json.",
+    "The first Codex discovery preflight failed to activate the plugin because of dotted TOML key quoting. Whole-table config corrected it before behavioral cases; both preflight traces are retained.",
+    "After E3 repair repeat 4 was started separately, the original sequential dispatcher later attempted the same run ID. The existing-run guard rejected it before setup or model execution. No artifacts were overwritten; actual repeat 4 was run once."
+  ],
+  "evidence_scope": "These are supervising-agent observations, not reconstructed raw command transcripts."
+}

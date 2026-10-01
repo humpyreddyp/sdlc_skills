@@ -1,0 +1,17 @@
+{
+  "status": "fail",
+  "reviewer": "primary Codex agent; compared first and repeated maintenance artifacts",
+  "notes": "The repeated run changes the index and expands/rewords already-correct completion documentation despite no source or requirement change. Source/test preservation and correctness pass, but repeat-run stability fails.",
+  "outcomes": {
+    "correctness": "pass",
+    "preservation": "pass",
+    "no_unnecessary_repeat_edits": "fail"
+  },
+  "evidence": [
+    "before/docs/completion.md",
+    "after/docs/completion.md",
+    "before/docs/index.md",
+    "after/docs/index.md",
+    "output.jsonl"
+  ]
+}

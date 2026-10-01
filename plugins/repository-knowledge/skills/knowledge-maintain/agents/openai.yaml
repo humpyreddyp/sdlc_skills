@@ -1,0 +1,4 @@
+interface:
+  display_name: "Knowledge Maintain"
+  short_description: "Keep repository knowledge current after changes"
+  default_prompt: "Use $knowledge-maintain to update repository knowledge for this change."

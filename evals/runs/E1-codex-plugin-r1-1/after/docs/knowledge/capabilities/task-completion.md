@@ -1,0 +1,26 @@
+# Task completion
+
+The [README](../../../README.md) describes a personal task list where a user adds tasks, lists them, and completes a task by numeric ID. Completion records that a task is done; it leaves the task available in subsequent listings. The current interface has no reopen or delete command. These interface details are established by `main` in [cli.py](../../../tasklist/cli.py) and the operations in [tasks.py](../../../tasklist/tasks.py).
+
+## Current behavior
+
+The IDs below identify current behavior and should remain stable as explanations evolve. Test references name what the existing tests check; gaps are explicit.
+
+| ID | Condition or trigger | Behavior | Code and tests |
+| --- | --- | --- | --- |
+| TC-01 | Add a task before completing it | Strip surrounding title whitespace, reject a blank title, and append a task with `done: false`. Its ID is one greater than the maximum existing ID, or 1 for an empty list. | [tasks.py](../../../tasklist/tasks.py), `add_task`; [test_tasks.py](../../../tests/test_tasks.py), `TaskTests.test_add_trims_and_assigns_id` checks trimming, ID 1, and initial state; `test_blank_title_rejected` checks blank rejection. Allocation with existing IDs is not tested. |
+| TC-02 | Complete an existing ID | Set the first matching task's `done` field to `True` in place and return that task dictionary. Preserve its ID, title, and position in the list. | [tasks.py](../../../tasklist/tasks.py), `complete_task`; [test_tasks.py](../../../tests/test_tasks.py), `test_complete_marks_done` checks both returned and stored `done` values. Return identity, field preservation, and duplicate-ID ordering are implementation evidence, not test assertions. |
+| TC-03 | Complete a task already marked done | Succeed and leave `done` as `True`; there is no separate already-completed error. The CLI still writes the file on success. | [tasks.py](../../../tasklist/tasks.py), `complete_task`; [cli.py](../../../tasklist/cli.py), `main`; [test_tasks.py](../../../tests/test_tasks.py), `test_repeat_completion_is_idempotent` checks the returned flag. File rewriting is not tested. |
+| TC-04 | Complete an ID with no match | Core function raises `KeyError(task_id)` without changing any task. CLI catches that error, prints its string plus a newline to stderr, and exits with status 2 before writing or printing a success result. | [tasks.py](../../../tasklist/tasks.py), `complete_task`; [cli.py](../../../tasklist/cli.py), `main`; [test_tasks.py](../../../tests/test_tasks.py), `test_missing_id_rejected` checks `KeyError` on an empty list. Nonempty no-match behavior and CLI error handling are not tested. |
+| TC-05 | List tasks after completion | Return all tasks, including completed tasks, in stored order as shallow dictionary copies. CLI prints the list as JSON and does not write the file. | [tasks.py](../../../tasklist/tasks.py), `list_tasks`; [cli.py](../../../tasklist/cli.py), `main`; [test_tasks.py](../../../tests/test_tasks.py), `test_list_returns_copies` checks that changing a returned `done` flag does not affect the original. Inclusion/order and CLI output are not explicitly tested. |
+| TC-06 | Invoke `complete` through the CLI | Parse the ID as an integer, load the selected JSON file (or start with an empty list if absent), call the core function, save the full list with a trailing newline, and print the completed task as JSON. `--file` defaults to `tasks.json`. | [cli.py](../../../tasklist/cli.py), `main`. No existing CLI or persistence tests. |
+
+## Implementation flow and limits
+
+Use the invocation examples in the [README](../../../README.md). For a stored task `{"id": 1, "title": "Review a document", "done": false}`, successful `complete 1` prints that task with `"done": true` and persists the updated list. Repeating the command produces the same task state. A missing ID such as 9 produces stderr `9` and exit status 2. These CLI outcomes follow from inspected code; the existing suite does not execute them.
+
+`main` in [cli.py](../../../tasklist/cli.py) uses only standard-library `argparse`, `json`, and `pathlib`, then delegates to [tasks.py](../../../tasklist/tasks.py). Integer parsing happens before file loading; invalid integer arguments are rejected by `argparse`. File loading occurs before the operation's `try` block, and saving occurs after it. Consequently, malformed JSON and read/write failures do not use the handled completion-error path. A missing file plus `complete` reaches the missing-ID error and does not create a file.
+
+The code assumes loaded JSON has the expected list-of-task-dictionaries structure; there is no schema validation. Completion chooses the first match if a manually edited file contains duplicate IDs. Saving directly replaces file contents without a lock or atomic replacement, and persistence precedes success output. No CLI or failure-path tests establish behavior under concurrent access or interrupted writes. These are implementation limits, not requirements to add new features.
+
+See the [knowledge index](../index.md#preparation-and-verification) for the actual local check results and environment. The separate [export note](../../export-notes.md) remains a proposal and does not change completion behavior.

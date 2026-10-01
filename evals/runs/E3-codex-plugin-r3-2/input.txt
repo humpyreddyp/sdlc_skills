@@ -1,0 +1,3 @@
+Use $repository-knowledge:knowledge-discover. Work only in this repository and the installed skill resources, if any. Do not inspect other projects or evaluation materials. Do not use subagents, network services, commit, or change application code or tests. You may edit repository documentation and run existing local checks. 
+
+Continue the saved task-completion investigation.

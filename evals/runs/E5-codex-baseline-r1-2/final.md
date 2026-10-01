@@ -1,0 +1,3 @@
+Updated [knowledge index](/private/tmp/repository-knowledge-evals/E5-codex-baseline-r1/docs/index.md) and [completion documentation](/private/tmp/repository-knowledge-evals/E5-codex-baseline-r1/docs/completion.md) to reflect the `finish_task` rename, repeated-completion error, CLI behavior, and test coverage limits.
+
+Preserved existing edits; changed only documentation. All 6 existing tests and `git diff --check` passed.

@@ -1,0 +1,19 @@
+{
+  "expectations_sha256": "f248e94b97cc187366cf399c917ca90c31a5d5a5b849a890a5442d595f37f39b",
+  "host_os": "macOS-15.7.9-arm64-arm-64bit-Mach-O",
+  "python": "3.14.2",
+  "codex_version": "0.158.0-alpha.2.1",
+  "claude_version": "2.1.285",
+  "codex_model_configured": "gpt-6-astra",
+  "codex_reasoning_configured": "high",
+  "claude_model_reported_at_init": "claude-opus-5-5",
+  "claude_model_executed": false,
+  "creator_validators": {
+    "skills": "pass",
+    "codex_plugin": "pass",
+    "claude_manifest": "pass"
+  },
+  "creator_environment": "temporary Python virtual environment with PyYAML 6.0.3",
+  "codex_initial_preflight": "failed plugin discovery due to CLI quoting; corrected before case runs",
+  "isolation": "expected answers absent from session context and fixture; not an OS-enforced read deny"
+}

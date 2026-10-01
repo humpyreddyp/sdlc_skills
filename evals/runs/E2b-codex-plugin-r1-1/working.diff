@@ -1,0 +1,47 @@
+diff --git a/README.md b/README.md
+index 53eb220..9c5400d 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,15 @@ python3 -m unittest discover -s tests -v
+ ```
+ 
+ The core functions also work in memory. Persistence is provided by the CLI; this is not a web service or a multi-user database.
++
++## Working on this repository
++
++Start with the [knowledge index](docs/knowledge/index.md) and [task completion behavior](docs/completion.md), which link to the relevant code and tests. [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md) provide entry points for Codex and Claude Code to the same documentation. Run commands from the repository root so Python can import `tasklist`; no dependency installation is required.
++
++## Verification recorded during preparation
++
++Preparation for task-completion work is complete for both hosts. On 2026-10-01, inspection started from a clean working tree at commit `659dd94` and covered this README, both existing documentation pages, all three `tasklist` modules, and `tests/test_tasks.py`. Preparation changes only documentation and preserves the [future export note](docs/export-notes.md).
++
++`python3 --version` reported Python 3.14.2. The `python3 -m unittest discover -s tests -v` command shown above ran successfully: all six tests passed. The tests cover title trimming and initial ID assignment, blank-title rejection, list-copy isolation, completion, completion of an already-done task, and a missing ID. No setup blocker was observed for this test suite.
++
++The repository contains no additional configured checks. CLI execution, JSON persistence, and CLI failure paths were inspected in code but were not exercised by the existing tests or run separately during this preparation. Python 3.10, the documented minimum, was not tested. For future completion changes, run the suite above and verify affected CLI paths; the [completion page](docs/completion.md) identifies current coverage gaps. No application change is proposed by this preparation.
+diff --git a/docs/completion.md b/docs/completion.md
+index e2dc40b..a6879b0 100644
+--- a/docs/completion.md
++++ b/docs/completion.md
+@@ -6,6 +6,20 @@ One person can mark a local task complete by numeric ID. The CLI persists succes
+ | --- | --- | --- | --- |
+ | COMP-01 | Existing not-done ID | Marks the task done and returns it | [complete_task](../tasklist/tasks.py); [test_complete_marks_done](../tests/test_tasks.py) checks the returned and stored flag |
+ | COMP-02 | Missing ID | Raises KeyError | [complete_task](../tasklist/tasks.py); [test_missing_id_rejected](../tests/test_tasks.py) checks a missing ID |
+-| COMP-03 | Already done ID | succeeds and keeps done true | [complete_task](../tasklist/tasks.py); [test_repeat_completion_is_idempotent](../tests/test_tasks.py) checks repeated completion |
++| COMP-03 | Already done ID | Succeeds and keeps done true | [complete_task](../tasklist/tasks.py); [TaskTests.test_repeat_completion_is_idempotent](../tests/test_tasks.py) calls completion on an already-done task and checks the returned flag |
+ 
+-The CLI calls complete_task, reports errors with exit status 2, and writes the JSON file after success. Core tests do not test CLI persistence. See [working instructions](../README.md) for setup and checks.
++## CLI flow and limits
++
++In [tasklist/cli.py](../tasklist/cli.py), `main` parses `complete <task_id>` as an integer. `--file` selects the JSON file and defaults to `tasks.json` relative to the working directory. The CLI loads an existing file or starts with an empty list if the file is absent, then calls [complete_task](../tasklist/tasks.py). That function scans the list, mutates the first matching task, and returns the same dictionary. Completing a task keeps it in the list; `list_tasks` returns copies of all task dictionaries, including completed tasks.
++
++| ID | Condition | Behavior | Code and tests |
++| --- | --- | --- | --- |
++| COMP-04 | CLI completion succeeds | Rewrites the task list as JSON with a trailing newline, then prints the completed task as JSON. Completing an already-done task also writes the file. | [main](../tasklist/cli.py); no existing CLI test |
++| COMP-05 | CLI completion cannot find the ID, including when the file is absent | Catches the core `KeyError`, prints the error to stderr, and exits with status 2 before writing a file. | [main](../tasklist/cli.py); [TaskTests.test_missing_id_rejected](../tests/test_tasks.py) covers only the core exception |
++| COMP-06 | CLI ID is not an integer | Argument parsing rejects it before loading the file. | [main](../tasklist/cli.py), `type=int`; no existing CLI test |
++
++The CLI catches `ValueError` and `KeyError` from the selected core operation. JSON loading happens before that handler and file writing happens afterward, so malformed JSON and file I/O failures are not handled by that error path. There is no explicit validation of the loaded task schema. These limits are visible in `main`; the existing tests do not exercise them.
++
++The three completion tests in [TaskTests](../tests/test_tasks.py) cover the returned and stored done flag, an already-done task, and a missing ID on an empty list. They do not cover CLI persistence or error output, selecting among multiple IDs, duplicate IDs, or the returned object's identity. [TaskTests.test_list_returns_copies](../tests/test_tasks.py) separately checks that changing a listed task's done flag does not mutate the original task.
++
++See [working instructions and verification results](../README.md) for setup and checks, and the [knowledge index](knowledge/index.md) for repository navigation.

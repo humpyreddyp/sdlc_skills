@@ -1,0 +1,11 @@
+{
+  "status": "fail",
+  "reviewer": "primary Codex agent; inspected generated documents and before/after changes",
+  "notes": "Repeats the demonstrated E4 intent-selection failure, though code/test findings and unfinished record are otherwise sound.",
+  "evidence": [
+    "before/",
+    "after/",
+    "output.jsonl",
+    "signals.json"
+  ]
+}

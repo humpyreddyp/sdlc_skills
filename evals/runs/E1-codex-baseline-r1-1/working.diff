@@ -1,0 +1,14 @@
+diff --git a/README.md b/README.md
+index 53eb220..7750820 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,9 @@ python3 -m unittest discover -s tests -v
+ ```
+ 
+ The core functions also work in memory. Persistence is provided by the CLI; this is not a web service or a multi-user database.
++
++For current completion behavior, relevant code and tests, and local check
++results, see [Task completion](docs/task-completion.md). Agent guidance lives
++in [AGENTS.md](AGENTS.md); [CLAUDE.md](CLAUDE.md) imports that shared guidance
++for Claude Code. The [future export note](docs/export-notes.md) describes an
++unimplemented proposal.

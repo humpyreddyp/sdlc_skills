@@ -1,0 +1,6 @@
+{
+  "status": "blocked",
+  "reason": "authentication_failed; Not logged in. No behavioral model execution occurred.",
+  "discovery": "both namespaced skills listed in init metadata",
+  "usage": "host reports zero inference tokens for rejected request; not a completed evaluation"
+}

@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "reviewer": "primary Codex agent; inspected all resulting Markdown, source/test references, and diffs",
+  "outcomes": {
+    "documentation_reuse": "pass",
+    "accurate_relevant_corrections": "pass",
+    "stable_ids": "pass",
+    "navigation": "pass",
+    "unrelated_content_preserved": "pass",
+    "truthful_verification": "pass"
+  },
+  "notes": "Corrected the false COMP-03 rejection claim in the existing completion page; retained COMP-01/02/03, preserved host instructions about live data and the export note, and reused README setup. Added only relevant CLI detail and navigation.",
+  "evidence": [
+    "after/docs/completion.md",
+    "after/AGENTS.md",
+    "after/CLAUDE.md",
+    "after/README.md",
+    "signals.json",
+    "output.jsonl"
+  ]
+}

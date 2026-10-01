@@ -1,0 +1,11 @@
+{
+  "status": "fail",
+  "reviewer": "primary Codex agent; inspected generated documents and before/after changes",
+  "notes": "Saves findings primarily as delivery work and prematurely settles repeat-success intent; no published capability explanation with stable behavior IDs.",
+  "evidence": [
+    "before/",
+    "after/",
+    "output.jsonl",
+    "signals.json"
+  ]
+}

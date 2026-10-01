@@ -1,0 +1,4 @@
+interface:
+  display_name: "Knowledge Discover"
+  short_description: "Prepare repositories and publish supported knowledge"
+  default_prompt: "Use $knowledge-discover to prepare this repository for the requested work."

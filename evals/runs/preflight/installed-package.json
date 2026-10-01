@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "source_to_installed_match": true,
+  "file_hashes": {
+    "references/publication.md": "cbe035e87a4ac6e72897c400a601367ad476687765607f007efa6a798fb57d75",
+    "references/continuity.md": "57b189eb13d1dcfcfee3f566cd322912b95d693048f77072060ebcc409ed9ef9",
+    "references/repository-integration.md": "859d18190e0d9450b34f67acce225ee7163486c693297878cf08c338fd2a05ae",
+    ".claude-plugin/plugin.json": "2392003bb83f49be393e2e648a6457ba1e934236e9d6307ad37c1d0b8343599f",
+    ".codex-plugin/plugin.json": "360fe70f8f98fc5cc3841dd275a49acf2c7af361bb9313f99321f8784823bfba",
+    "skills/knowledge-maintain/SKILL.md": "1be476f2a405e94d1d27e765edef5f9840479237ded58f0f7440bb1bdf4f0132",
+    "skills/knowledge-discover/SKILL.md": "ba99711fe9c9b2f2ab78936eb5753204fcdfa8e3ea0c5ed56c77e7f40ea082d2",
+    "skills/knowledge-discover/agents/openai.yaml": "917007a63dbd36f304d2880cde2749b7bc525691699b285cff61a298af17e2e1",
+    "skills/knowledge-maintain/agents/openai.yaml": "15477c706f9785c2a85af507be8b0f478e4cfc3310583cc8e198ce8f4831f871"
+  }
+}

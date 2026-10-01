@@ -1,0 +1,11 @@
+{
+  "status": "fail",
+  "reviewer": "primary Codex agent; inspected generated documents and before/after changes",
+  "notes": "Correctly detects and records changed sources without restarting, but maintains the resolved explanation in the delivery work record.",
+  "evidence": [
+    "before/",
+    "after/",
+    "output.jsonl",
+    "signals.json"
+  ]
+}

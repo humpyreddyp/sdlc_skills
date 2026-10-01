@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "reviewer": "primary Codex agent; inspected initial findings and questions",
+  "notes": "Repaired skill preserves the open repeat-success decision, distinguishes recommendations, publishes current supported behavior, and saves unfinished continuation context. Additional output-placement choice is explicitly a proposal for delivery.",
+  "evidence": [
+    "final.md",
+    "after/docs/task-completion.md",
+    "after/docs/work/investigation/repeated-completion.md",
+    "output.jsonl"
+  ]
+}

@@ -1,0 +1,3 @@
+Complete. Updated [completion knowledge](/private/tmp/repository-knowledge-evals/E5-codex-plugin-r1/docs/completion.md) for `finish_task`, repeat-completion rejection, and CLI error/persistence behavior. Preserved behavior IDs and distinguished inspected behavior from test coverage.
+
+All six tests passed; documentation links, referenced symbols, and `git diff --check` passed. Only documentation was edited; nothing was committed.

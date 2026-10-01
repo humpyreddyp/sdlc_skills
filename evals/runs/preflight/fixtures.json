@@ -1,0 +1,194 @@
+[
+  {
+    "case": "E1",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "output": "test_add_trims_and_assigns_id (test_tasks.TaskTests.test_add_trims_and_assigns_id) ... ok\ntest_blank_title_rejected (test_tasks.TaskTests.test_blank_title_rejected) ... ok\ntest_complete_marks_done (test_tasks.TaskTests.test_complete_marks_done) ... ok\ntest_list_returns_copies (test_tasks.TaskTests.test_list_returns_copies) ... ok\ntest_missing_id_rejected (test_tasks.TaskTests.test_missing_id_rejected) ... ok\ntest_repeat_completion_is_idempotent (test_tasks.TaskTests.test_repeat_completion_is_idempotent) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+    "hashes": {
+      "README.md": "bc1f90e0123053f5a32ba9bb1bd720b3265509c3d5a97e795624ca8ebb39a884",
+      "docs/export-notes.md": "c68221ab7a3b93e9a5d455c66d1142ad72b2af939411907c2f39750bcbc0b955",
+      "tasklist/__init__.py": "778f6ebcf887e297104421ecdb22869fc325d7220f413d84b14f39660053bf0d",
+      "tasklist/cli.py": "8f16ece019bd13149e5ce1671d7b29e1275f07b664f541fda35df7a5ea3783dd",
+      "tasklist/tasks.py": "d3f2ff015c34867cf45c25c7b262d51a8dd25f4406d4f5179b0459e8a72ad7c1",
+      "tests/test_tasks.py": "c54bcbdeba1160f864119ef41d478e0dc6cdf9a67f613c163d0f5350686dfb3f"
+    }
+  },
+  {
+    "case": "E2a",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "output": "test_add_trims_and_assigns_id (test_tasks.TaskTests.test_add_trims_and_assigns_id) ... ok\ntest_blank_title_rejected (test_tasks.TaskTests.test_blank_title_rejected) ... ok\ntest_complete_marks_done (test_tasks.TaskTests.test_complete_marks_done) ... ok\ntest_list_returns_copies (test_tasks.TaskTests.test_list_returns_copies) ... ok\ntest_missing_id_rejected (test_tasks.TaskTests.test_missing_id_rejected) ... ok\ntest_repeat_completion_is_idempotent (test_tasks.TaskTests.test_repeat_completion_is_idempotent) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+    "hashes": {
+      "AGENTS.md": "a243a653897661f78f9250f76b6a6c7c13d1760a78f112196e20b7d8541b635e",
+      "CLAUDE.md": "a243a653897661f78f9250f76b6a6c7c13d1760a78f112196e20b7d8541b635e",
+      "README.md": "bc1f90e0123053f5a32ba9bb1bd720b3265509c3d5a97e795624ca8ebb39a884",
+      "docs/completion.md": "6e3a666908d6f848552e83e206a415d88e201c65da051e3bdede90287c50bf0d",
+      "docs/export-notes.md": "c68221ab7a3b93e9a5d455c66d1142ad72b2af939411907c2f39750bcbc0b955",
+      "docs/index.md": "47b4d78789c46636c8356043f3aeaa41cc02db5e3f265c0718983647ea6cd582",
+      "tasklist/__init__.py": "778f6ebcf887e297104421ecdb22869fc325d7220f413d84b14f39660053bf0d",
+      "tasklist/cli.py": "8f16ece019bd13149e5ce1671d7b29e1275f07b664f541fda35df7a5ea3783dd",
+      "tasklist/tasks.py": "d3f2ff015c34867cf45c25c7b262d51a8dd25f4406d4f5179b0459e8a72ad7c1",
+      "tests/test_tasks.py": "c54bcbdeba1160f864119ef41d478e0dc6cdf9a67f613c163d0f5350686dfb3f"
+    }
+  },
+  {
+    "case": "E2b",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "output": "test_add_trims_and_assigns_id (test_tasks.TaskTests.test_add_trims_and_assigns_id) ... ok\ntest_blank_title_rejected (test_tasks.TaskTests.test_blank_title_rejected) ... ok\ntest_complete_marks_done (test_tasks.TaskTests.test_complete_marks_done) ... ok\ntest_list_returns_copies (test_tasks.TaskTests.test_list_returns_copies) ... ok\ntest_missing_id_rejected (test_tasks.TaskTests.test_missing_id_rejected) ... ok\ntest_repeat_completion_is_idempotent (test_tasks.TaskTests.test_repeat_completion_is_idempotent) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+    "hashes": {
+      "README.md": "bc1f90e0123053f5a32ba9bb1bd720b3265509c3d5a97e795624ca8ebb39a884",
+      "docs/completion.md": "23bf4d2b46c02999e8cd154d0257fa05a39899dec8470994a340308adf1a3591",
+      "docs/export-notes.md": "c68221ab7a3b93e9a5d455c66d1142ad72b2af939411907c2f39750bcbc0b955",
+      "tasklist/__init__.py": "778f6ebcf887e297104421ecdb22869fc325d7220f413d84b14f39660053bf0d",
+      "tasklist/cli.py": "8f16ece019bd13149e5ce1671d7b29e1275f07b664f541fda35df7a5ea3783dd",
+      "tasklist/tasks.py": "d3f2ff015c34867cf45c25c7b262d51a8dd25f4406d4f5179b0459e8a72ad7c1",
+      "tests/test_tasks.py": "c54bcbdeba1160f864119ef41d478e0dc6cdf9a67f613c163d0f5350686dfb3f"
+    }
+  },
+  {
+    "case": "E3",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "output": "test_add_trims_and_assigns_id (test_tasks.TaskTests.test_add_trims_and_assigns_id) ... ok\ntest_blank_title_rejected (test_tasks.TaskTests.test_blank_title_rejected) ... ok\ntest_complete_marks_done (test_tasks.TaskTests.test_complete_marks_done) ... ok\ntest_list_returns_copies (test_tasks.TaskTests.test_list_returns_copies) ... ok\ntest_missing_id_rejected (test_tasks.TaskTests.test_missing_id_rejected) ... ok\ntest_repeat_completion_is_idempotent (test_tasks.TaskTests.test_repeat_completion_is_idempotent) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+    "hashes": {
+      "README.md": "bc1f90e0123053f5a32ba9bb1bd720b3265509c3d5a97e795624ca8ebb39a884",
+      "delivery.md": "cd7121996ed9dd943090ca0cd0a54589e9b2f684ee4b81db41d898c1e2e100b0",
+      "docs/export-notes.md": "c68221ab7a3b93e9a5d455c66d1142ad72b2af939411907c2f39750bcbc0b955",
+      "tasklist/__init__.py": "778f6ebcf887e297104421ecdb22869fc325d7220f413d84b14f39660053bf0d",
+      "tasklist/cli.py": "2bf460d074ff2b43160f95040786899114600c055d80c2ea4220a8db80acc02a",
+      "tasklist/tasks.py": "f92a6b78cbac696e9e10193241667466bfd50e93a79a99cf68af8da262a2d890",
+      "tests/test_tasks.py": "71f80778ec344d7eaca9740d3590d32f390db6e47bfbdcfb4f57d53a963d3a41"
+    }
+  },
+  {
+    "case": "E4",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "output": "test_add_trims_and_assigns_id (test_tasks.TaskTests.test_add_trims_and_assigns_id) ... ok\ntest_blank_title_rejected (test_tasks.TaskTests.test_blank_title_rejected) ... ok\ntest_complete_marks_done (test_tasks.TaskTests.test_complete_marks_done) ... ok\ntest_list_returns_copies (test_tasks.TaskTests.test_list_returns_copies) ... ok\ntest_missing_id_rejected (test_tasks.TaskTests.test_missing_id_rejected) ... ok\ntest_repeat_completion_is_idempotent (test_tasks.TaskTests.test_repeat_completion_is_idempotent) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+    "hashes": {
+      "README.md": "bc1f90e0123053f5a32ba9bb1bd720b3265509c3d5a97e795624ca8ebb39a884",
+      "delivery.md": "cd7121996ed9dd943090ca0cd0a54589e9b2f684ee4b81db41d898c1e2e100b0",
+      "docs/export-notes.md": "c68221ab7a3b93e9a5d455c66d1142ad72b2af939411907c2f39750bcbc0b955",
+      "tasklist/__init__.py": "778f6ebcf887e297104421ecdb22869fc325d7220f413d84b14f39660053bf0d",
+      "tasklist/cli.py": "8f16ece019bd13149e5ce1671d7b29e1275f07b664f541fda35df7a5ea3783dd",
+      "tasklist/tasks.py": "d3f2ff015c34867cf45c25c7b262d51a8dd25f4406d4f5179b0459e8a72ad7c1",
+      "tests/test_tasks.py": "c54bcbdeba1160f864119ef41d478e0dc6cdf9a67f613c163d0f5350686dfb3f"
+    }
+  },
+  {
+    "case": "E5",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "output": "test_add_trims_and_assigns_id (test_tasks.TaskTests.test_add_trims_and_assigns_id) ... ok\ntest_blank_title_rejected (test_tasks.TaskTests.test_blank_title_rejected) ... ok\ntest_complete_marks_done (test_tasks.TaskTests.test_complete_marks_done) ... ok\ntest_list_returns_copies (test_tasks.TaskTests.test_list_returns_copies) ... ok\ntest_missing_id_rejected (test_tasks.TaskTests.test_missing_id_rejected) ... ok\ntest_repeat_completion_rejected (test_tasks.TaskTests.test_repeat_completion_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+    "hashes": {
+      "AGENTS.md": "a243a653897661f78f9250f76b6a6c7c13d1760a78f112196e20b7d8541b635e",
+      "CLAUDE.md": "a243a653897661f78f9250f76b6a6c7c13d1760a78f112196e20b7d8541b635e",
+      "README.md": "bc1f90e0123053f5a32ba9bb1bd720b3265509c3d5a97e795624ca8ebb39a884",
+      "docs/completion.md": "23bf4d2b46c02999e8cd154d0257fa05a39899dec8470994a340308adf1a3591",
+      "docs/export-notes.md": "c68221ab7a3b93e9a5d455c66d1142ad72b2af939411907c2f39750bcbc0b955",
+      "docs/index.md": "47b4d78789c46636c8356043f3aeaa41cc02db5e3f265c0718983647ea6cd582",
+      "tasklist/__init__.py": "778f6ebcf887e297104421ecdb22869fc325d7220f413d84b14f39660053bf0d",
+      "tasklist/cli.py": "2bf460d074ff2b43160f95040786899114600c055d80c2ea4220a8db80acc02a",
+      "tasklist/tasks.py": "30f71bad312846f9895983c9e6b43b3c73e60cf9b71997d5ebcfcc2aa865a25c",
+      "tests/test_tasks.py": "6441a04961ffb8a84aa2807cc458ffe5a045dfbe24b3d9585577a9730d372d35"
+    }
+  },
+  {
+    "case": "E6a",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit": 1,
+    "expected_exit": 1,
+    "output": "test_add_trims_and_assigns_id (test_tasks.TaskTests.test_add_trims_and_assigns_id) ... ok\ntest_blank_title_rejected (test_tasks.TaskTests.test_blank_title_rejected) ... ok\ntest_complete_marks_done (test_tasks.TaskTests.test_complete_marks_done) ... ok\ntest_list_returns_copies (test_tasks.TaskTests.test_list_returns_copies) ... ok\ntest_missing_id_rejected (test_tasks.TaskTests.test_missing_id_rejected) ... ok\ntest_repeat_completion_is_idempotent (test_tasks.TaskTests.test_repeat_completion_is_idempotent) ... FAIL\n\n======================================================================\nFAIL: test_repeat_completion_is_idempotent (test_tasks.TaskTests.test_repeat_completion_is_idempotent)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/x0/m35thv3n2dlfv2p7h663cjr40000gn/T/rk-fixture-check-wuy2kpah/repo/tests/test_tasks.py\", line 28, in test_repeat_completion_is_idempotent\n    with self.assertRaises(ValueError):\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nAssertionError: ValueError not raised\n\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nFAILED (failures=1)\n",
+    "hashes": {
+      "README.md": "bc1f90e0123053f5a32ba9bb1bd720b3265509c3d5a97e795624ca8ebb39a884",
+      "docs/export-notes.md": "c68221ab7a3b93e9a5d455c66d1142ad72b2af939411907c2f39750bcbc0b955",
+      "requirements.md": "cceeb4e8a863cf571e1470b3dea79a53ae76a650148688257ce8668742cb9060",
+      "tasklist/__init__.py": "778f6ebcf887e297104421ecdb22869fc325d7220f413d84b14f39660053bf0d",
+      "tasklist/cli.py": "8f16ece019bd13149e5ce1671d7b29e1275f07b664f541fda35df7a5ea3783dd",
+      "tasklist/tasks.py": "d3f2ff015c34867cf45c25c7b262d51a8dd25f4406d4f5179b0459e8a72ad7c1",
+      "tests/test_tasks.py": "77286b81f6f8783c2218aa6847b3f19df418842f47dbfcc38c9c957a001ed21b"
+    }
+  },
+  {
+    "case": "E6b",
+    "command": [
+      "python3",
+      "tools/verify.py"
+    ],
+    "exit": 1,
+    "expected_exit": 1,
+    "output": "Traceback (most recent call last):\n  File \"/private/var/folders/x0/m35thv3n2dlfv2p7h663cjr40000gn/T/rk-fixture-check-_58g0sgj/repo/tools/verify.py\", line 1, in <module>\n    import repository_eval_missing_dependency\nModuleNotFoundError: No module named 'repository_eval_missing_dependency'\n",
+    "hashes": {
+      "README.md": "79c71a5c30ac25d9940af625628093cab65b0db8f271fdf2e5d564cdab16961e",
+      "docs/export-notes.md": "c68221ab7a3b93e9a5d455c66d1142ad72b2af939411907c2f39750bcbc0b955",
+      "tasklist/__init__.py": "778f6ebcf887e297104421ecdb22869fc325d7220f413d84b14f39660053bf0d",
+      "tasklist/cli.py": "8f16ece019bd13149e5ce1671d7b29e1275f07b664f541fda35df7a5ea3783dd",
+      "tasklist/tasks.py": "d3f2ff015c34867cf45c25c7b262d51a8dd25f4406d4f5179b0459e8a72ad7c1",
+      "tests/test_tasks.py": "c54bcbdeba1160f864119ef41d478e0dc6cdf9a67f613c163d0f5350686dfb3f",
+      "tools/verify.py": "b67c07ce3cba4eec4d79f055379978fea64a73ff7ca756996d386b2cf878e9bf"
+    }
+  }
+]

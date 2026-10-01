@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/private/tmp/repository-knowledge-tools/claude",
+    "auth",
+    "status"
+  ],
+  "exit_code": 1,
+  "checked_at": "2026-10-01T15:02:30.803446+00:00",
+  "stdout": "{\n  \"loggedIn\": false,\n  \"authMethod\": \"none\",\n  \"apiProvider\": \"firstParty\",\n  \"analyticsDisabled\": false,\n  \"projectsDirectory\": \"/Users/humpyreddypininti/.claude/projects\",\n  \"configDirectory\": \"/Users/humpyreddypininti/.claude\"\n}\n",
+  "stderr": ""
+}

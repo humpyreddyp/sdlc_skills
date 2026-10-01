@@ -1,0 +1,20 @@
+{
+  "name": "sdlc-skills",
+  "interface": {
+    "displayName": "Sdlc Skills"
+  },
+  "plugins": [
+    {
+      "name": "repository-knowledge",
+      "source": {
+        "source": "local",
+        "path": "./plugins/repository-knowledge"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

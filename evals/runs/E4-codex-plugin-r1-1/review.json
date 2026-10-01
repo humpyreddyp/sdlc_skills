@@ -1,0 +1,18 @@
+{
+  "status": "fail",
+  "reviewer": "primary Codex agent; inspected final response, published behavior page, investigation record, delivery.md",
+  "outcomes": {
+    "preserve_delivery_request": "pass",
+    "supported_current_behavior": "pass",
+    "publication_and_minimal_continuity": "pass",
+    "group_explicitly_open_product_decisions": "fail"
+  },
+  "failure": "The request explicitly leaves repeat-success intent and special messaging open. The run turns the first into a preservation requirement based on implementation and test intent, and asks only about wording. Recommending preservation is reasonable, but should remain a proposal until that requested decision is resolved.",
+  "evidence": [
+    "final.md",
+    "after/delivery.md",
+    "after/docs/task-completion.md",
+    "after/docs/work/investigation/repeated-completion.md"
+  ],
+  "repair": "Clarify in Discover that explicitly requested product decisions stay open even when code/tests establish current behavior; recommendations must be marked as proposals."
+}

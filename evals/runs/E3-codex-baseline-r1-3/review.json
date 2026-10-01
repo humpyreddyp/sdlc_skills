@@ -1,0 +1,11 @@
+{
+  "status": "fail",
+  "reviewer": "primary Codex agent; inspected saved findings, delivery document, final response and actual sources",
+  "notes": "Accurate source recheck and preservation, but resolved understanding is held primarily in the delivery work document rather than a supported published capability explanation with stable behavior IDs. The initial run also settles the explicitly open repeat-success decision from code/test evidence.",
+  "evidence": [
+    "after/",
+    "final.md",
+    "output.jsonl",
+    "signals.json"
+  ]
+}

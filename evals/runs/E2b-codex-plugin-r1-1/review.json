@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "reviewer": "primary Codex agent; inspected all resulting Markdown, source/test references, and diffs",
+  "outcomes": {
+    "documentation_reuse": "pass",
+    "accurate_relevant_corrections": "pass",
+    "stable_ids": "pass",
+    "navigation": "pass",
+    "unrelated_content_preserved": "pass",
+    "truthful_verification": "pass"
+  },
+  "notes": "Reused docs/completion.md and preserved COMP IDs, added both host entry points and an index, and linked README verification. No competing explanation or empty page.",
+  "evidence": [
+    "after/docs/completion.md",
+    "after/AGENTS.md",
+    "after/CLAUDE.md",
+    "after/README.md",
+    "signals.json",
+    "output.jsonl"
+  ]
+}

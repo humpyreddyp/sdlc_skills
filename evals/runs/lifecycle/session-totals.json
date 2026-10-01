@@ -1,0 +1,9 @@
+{
+  "codex_sessions": 37,
+  "claude_blocked_attempts": 1,
+  "input_tokens": 4057974,
+  "output_tokens": 85223,
+  "cached_input_tokens_included_in_input": 3249024,
+  "summed_session_seconds": 3406.433,
+  "not_measured": "Supervising conversation usage, account cost, and aggregate parallel wall time."
+}

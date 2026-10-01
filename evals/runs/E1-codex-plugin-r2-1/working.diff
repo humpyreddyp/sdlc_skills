@@ -1,0 +1,10 @@
+diff --git a/README.md b/README.md
+index 53eb220..b3d34b2 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,5 @@ python3 -m unittest discover -s tests -v
+ ```
+ 
+ The core functions also work in memory. Persistence is provided by the CLI; this is not a web service or a multi-user database.
++
++For agent work, start with the [repository knowledge index](docs/knowledge/index.md), including [task completion behavior and code/test references](docs/knowledge/capabilities/task-completion.md) and [working instructions and check results](docs/knowledge/working.md). Codex and Claude Code entry points are [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md).

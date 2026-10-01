@@ -1,0 +1,25 @@
+# Task completion and supporting operations
+
+As described in the [README](../../../README.md), one person can add a local task, list tasks to find its numeric ID, and complete it. Completion records `done: true`; it does not remove the task. The current commands are `add`, `list`, and `complete`. The [CSV export note](../../export-notes.md) is a proposal, not an available command.
+
+## Behavior and evidence
+
+These IDs identify current behavior for future documentation updates. Implementation references establish what the code does; named tests establish only their stated assertions. Execution results are recorded in the [readiness assessment](../index.md).
+
+| ID | Condition or trigger | Observable behavior | Code and tests |
+| --- | --- | --- | --- |
+| TASK-001 | Add a nonblank title | Trim surrounding whitespace, append a task with `done: false`, and assign one greater than the largest existing ID (1 for an empty list). | [tasks.py](../../../tasklist/tasks.py), `add_task`; [test_tasks.py](../../../tests/test_tasks.py), `TaskTests.test_add_trims_and_assigns_id` checks trimming and ID 1 on an empty list. Allocation with existing IDs has no dedicated test. |
+| TASK-002 | Add a whitespace-only title | Raise `ValueError("title must not be blank")` before appending. The CLI reports the message on standard error and exits 2 before saving. | `add_task` in [tasks.py](../../../tasklist/tasks.py); `main` in [cli.py](../../../tasklist/cli.py); `TaskTests.test_blank_title_rejected` in [test_tasks.py](../../../tests/test_tasks.py) checks the core exception. |
+| TASK-003 | List tasks | Return all tasks, including completed tasks, in existing order, as shallow dictionary copies. CLI listing prints JSON without writing the file. | `list_tasks` in [tasks.py](../../../tasklist/tasks.py); `main` in [cli.py](../../../tasklist/cli.py); `TaskTests.test_list_returns_copies` in [test_tasks.py](../../../tests/test_tasks.py) checks that changing a returned `done` value leaves the original unchanged. |
+| TASK-004 | Complete an existing numeric ID | Set the first matching task's `done` field to `True` in place and return that same task. Other fields remain intact. | `complete_task` in [tasks.py](../../../tasklist/tasks.py); `TaskTests.test_complete_marks_done` in [test_tasks.py](../../../tests/test_tasks.py) checks both the returned value and the input task's `done` field. Object identity and duplicate IDs have no dedicated assertions. |
+| TASK-005 | Complete an already completed task | Leave `done` true and return the task. The CLI still rewrites the JSON file on success. | `complete_task` in [tasks.py](../../../tasklist/tasks.py); `main` in [cli.py](../../../tasklist/cli.py); `TaskTests.test_repeat_completion_is_idempotent` in [test_tasks.py](../../../tests/test_tasks.py) checks completion of a task already marked done. |
+| TASK-006 | Complete an unknown ID | Raise `KeyError(task_id)`. The CLI prints the exception text to standard error and exits 2 before saving; for ID 9 the message is `9`. | `complete_task` in [tasks.py](../../../tasklist/tasks.py); `main` in [cli.py](../../../tasklist/cli.py); `TaskTests.test_missing_id_rejected` in [test_tasks.py](../../../tests/test_tasks.py) checks `KeyError` on an empty list. |
+| TASK-007 | Invoke a CLI command with a file path | Load existing JSON, or start with `[]` if the file is absent. Successful add/complete writes the whole list plus a newline, then prints the resulting task as JSON. List prints the list as JSON. | [cli.py](../../../tasklist/cli.py), `main`; no existing CLI unit tests. The readiness assessment records a successful temporary-file smoke check. |
+
+## Implementation flow and limits
+
+[`tasklist.cli.main`](../../../tasklist/cli.py) uses `argparse` to select a required subcommand and parse the completion ID as an integer. `--file` is a global option and defaults to `tasks.json` relative to the working directory. It reads JSON into memory, dispatches to a function in [`tasklist.tasks`](../../../tasklist/tasks.py), saves after successful mutation, and prints JSON. Core functions do not perform filesystem operations.
+
+Only `ValueError` and `KeyError` raised during dispatch are translated into CLI exit code 2. JSON loading happens before that handler, and writing happens afterward. Invalid JSON and filesystem failures therefore are not covered by that friendly error path. Loaded data has no explicit schema validation, and missing parent directories are not created. The file writer directly replaces content using `Path.write_text`; there is no locking or atomic replacement mechanism. These are inspected implementation limits, not confirmed requirements to change them.
+
+For future completion work, the core assertions live in [`TaskTests`](../../../tests/test_tasks.py). Persistence and CLI error handling need separate verification when affected. Follow the [README commands](../../../README.md) and check the [current verification blocker](../index.md) before claiming all checks passed.

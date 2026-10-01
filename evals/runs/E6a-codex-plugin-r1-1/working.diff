@@ -1,0 +1,21 @@
+diff --git a/README.md b/README.md
+index 53eb220..d43b0c4 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,5 @@ python3 -m unittest discover -s tests -v
+ ```
+ 
+ The core functions also work in memory. Persistence is provided by the CLI; this is not a web service or a multi-user database.
++
++See [task completion](docs/task-completion.md) for the confirmed rule, current behavior, and verification of repeated completion.
+diff --git a/requirements.md b/requirements.md
+index 4fd900b..76c700f 100644
+--- a/requirements.md
++++ b/requirements.md
+@@ -1,3 +1,5 @@
+ # Confirmed requirement
+ 
+-A repeated completion must be rejected with ValueError. This requirement was confirmed by the product owner; current compliance has not been verified.
++A repeated completion must be rejected with ValueError. This requirement was confirmed by the product owner.
++
++Compliance was checked on 2026-10-01: the implementation accepts repeated completion and the existing rejection test fails. See [task completion](docs/task-completion.md) for evidence and the remaining work.

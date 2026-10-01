@@ -1,0 +1,18 @@
+{
+  "reviewer": "primary Codex agent; inspected readiness prose and actual command output",
+  "status": "pass",
+  "outcomes": {
+    "missing_dependency_reported": "pass",
+    "no_invented_check_results": "pass",
+    "supported_findings_published": "pass",
+    "assessment_vs_environment_readiness": "pass",
+    "scope_and_preservation": "pass"
+  },
+  "evidence": [
+    "after/docs/knowledge/index.md",
+    "after/docs/knowledge/capabilities/task-completion.md",
+    "output.jsonl",
+    "signals.json"
+  ],
+  "notes": "The wrapper failure is reported separately from six passing unit tests and a real ad hoc CLI smoke check. It does not guess a dependency package or claim full verification."
+}

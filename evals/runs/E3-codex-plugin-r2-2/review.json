@@ -1,0 +1,10 @@
+{
+  "status": "fail",
+  "reviewer": "primary Codex agent",
+  "notes": "Resumption correctly detects and updates the changed sources, but retains the initial premature repeat-success decision; affected by the same E4 repair.",
+  "evidence": [
+    "after/docs/task-completion.md",
+    "after/docs/work/investigation/repeated-completion.md",
+    "output.jsonl"
+  ]
+}

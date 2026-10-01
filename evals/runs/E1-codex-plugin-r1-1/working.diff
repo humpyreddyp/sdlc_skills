@@ -1,0 +1,10 @@
+diff --git a/README.md b/README.md
+index 53eb220..66ed07e 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,5 @@ python3 -m unittest discover -s tests -v
+ ```
+ 
+ The core functions also work in memory. Persistence is provided by the CLI; this is not a web service or a multi-user database.
++
++For agent working instructions, current behavior, code and test references, and local verification results, start with the [repository knowledge index](docs/knowledge/index.md). The [task completion guide](docs/knowledge/capabilities/task-completion.md) describes completion and its limits.

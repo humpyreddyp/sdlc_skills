@@ -1,0 +1,11 @@
+{
+  "status": "fail",
+  "reviewer": "primary Codex agent; inspected saved findings, delivery document, final response and actual sources",
+  "notes": "Correct publication, source-change detection and continuation, but carries the initial premature repeat-success product decision. Covered by the E4 decision-boundary repair; rerun required.",
+  "evidence": [
+    "after/",
+    "final.md",
+    "output.jsonl",
+    "signals.json"
+  ]
+}

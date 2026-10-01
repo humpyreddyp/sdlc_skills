@@ -1,0 +1,7 @@
+Reading additional input from stdin...
+2026-10-01T14:35:16.422433Z  WARN codex_core_plugins::loader: failed to load plugin: invalid plugin name: only ASCII letters, digits, `.`, `_`, and `-` are allowed in `"repository-knowledge@sdlc-skills"` plugin="\"repository-knowledge@sdlc-skills\"" path=/Users/humpyreddypininti/.codex/plugins/cache
+2026-10-01T14:35:16.427596Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-01T14:35:16.429212Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-01T14:35:16.430583Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-01T14:35:16.431827Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-01T14:35:16.433143Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back

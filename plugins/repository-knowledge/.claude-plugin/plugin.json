@@ -1,0 +1,9 @@
+{
+  "name": "repository-knowledge",
+  "version": "0.1.1",
+  "description": "Prepare repositories, publish supported knowledge, resume investigations, and maintain explanations after changes.",
+  "author": {
+    "name": "humpyreddyp"
+  },
+  "repository": "https://github.com/humpyreddyp/sdlc_skills"
+}

@@ -1,0 +1,3 @@
+Updated the [completion findings](/private/tmp/repository-knowledge-evals/E3-codex-plugin-r1/docs/task-completion.md) for `finish_task` and the missing-ID `ValueError`. All six tests and documentation link checks pass. Application code and tests were untouched.
+
+Investigation remains partial: same versus distinct repeat-confirmation wording awaits your decision. The [saved record](/private/tmp/repository-knowledge-evals/E3-codex-plugin-r1/docs/work/investigation/repeated-completion.md) preserves that question; implementation remains in [delivery.md](/private/tmp/repository-knowledge-evals/E3-codex-plugin-r1/delivery.md).

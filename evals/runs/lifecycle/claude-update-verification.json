@@ -1,0 +1,38 @@
+[
+  {
+    "command": [
+      "/private/tmp/repository-knowledge-tools/claude",
+      "plugin",
+      "list",
+      "--json"
+    ],
+    "exit": 0,
+    "elapsed_seconds": 0.2647825829917565,
+    "stdout": "[\n  {\n    \"id\": \"repository-knowledge@sdlc-skills\",\n    \"version\": \"0.1.1\",\n    \"scope\": \"user\",\n    \"enabled\": true,\n    \"installPath\": \"/Users/humpyreddypininti/.claude/plugins/cache/sdlc-skills/repository-knowledge/0.1.1\",\n    \"installedAt\": \"2026-10-01T14:38:11.943Z\",\n    \"lastUpdated\": \"2026-10-01T14:54:36.869Z\",\n    \"projectEnabled\": false\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/repository-knowledge-tools/claude",
+      "plugin",
+      "details",
+      "repository-knowledge@sdlc-skills"
+    ],
+    "exit": 0,
+    "elapsed_seconds": 0.11612283300200943,
+    "stdout": "repository-knowledge 0.1.1\n  Description: Repository readiness and knowledge discovery and maintenance\n  Source: repository-knowledge@sdlc-skills\n\nComponent inventory\n  Skills (2)  knowledge-discover, knowledge-maintain\n  Agents (0)\n  Hooks (0)\n  MCP servers (0)\n  LSP servers (0)\n\nProjected token cost\n  Always-on:   ~166 tok   added to every session\n\nPer-component (rounded)\n  component           always-on  on-invoke\n  knowledge-maintain        ~80       ~790\n  knowledge-discover        ~80      ~1.1k\n\n  On-invoke cost is paid each time a skill or agent fires.\n  Token counts are estimates and may differ from actual usage.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/private/tmp/repository-knowledge-tools/claude",
+      "plugin",
+      "validate",
+      "plugins/repository-knowledge"
+    ],
+    "exit": 0,
+    "elapsed_seconds": 0.10491545900003985,
+    "stdout": "Validating plugin manifest: /Users/humpyreddypininti/Documents/ChatGPT/sdlc_skills/plugins/repository-knowledge/.claude-plugin/plugin.json\n\n\u2714 Validation passed\n",
+    "stderr": ""
+  }
+]

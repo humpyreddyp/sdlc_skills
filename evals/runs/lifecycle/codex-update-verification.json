@@ -1,0 +1,32 @@
+{
+  "command": [
+    "codex",
+    "plugin",
+    "list",
+    "--json"
+  ],
+  "exit_code": 0,
+  "checked_at": "2026-10-01T15:02:30.522935+00:00",
+  "matching_installed_entries": [
+    {
+      "pluginId": "repository-knowledge@sdlc-skills",
+      "name": "repository-knowledge",
+      "marketplaceName": "sdlc-skills",
+      "version": "0.1.1+codex.20261001145433",
+      "installed": true,
+      "enabled": true,
+      "source": {
+        "source": "local",
+        "path": "/Users/humpyreddypininti/Documents/ChatGPT/sdlc_skills/plugins/repository-knowledge"
+      },
+      "marketplaceSource": {
+        "sourceType": "local",
+        "source": "/Users/humpyreddypininti/Documents/ChatGPT/sdlc_skills"
+      },
+      "installPolicy": "AVAILABLE",
+      "authPolicy": "ON_INSTALL"
+    }
+  ],
+  "stderr": "WARNING: proceeding, even though we could not create PATH aliases: Operation not permitted (os error 1)\nWarning: failed to list remote marketplace plugins: failed to send remote plugin catalog request to https://chatgpt.com/backend-api/ps/plugins/installed?includeExtensions=true&scope=GLOBAL: error sending request for url (https://chatgpt.com/backend-api/ps/plugins/installed?includeExtensions=true&scope=GLOBAL)\n",
+  "note": "Inventory filtered to this task plugin; unrelated user plugin metadata omitted."
+}

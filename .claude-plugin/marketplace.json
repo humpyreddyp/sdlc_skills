@@ -1,0 +1,13 @@
+{
+  "name": "sdlc-skills",
+  "owner": {
+    "name": "humpyreddyp"
+  },
+  "plugins": [
+    {
+      "name": "repository-knowledge",
+      "source": "./plugins/repository-knowledge",
+      "description": "Repository readiness and knowledge discovery and maintenance"
+    }
+  ]
+}

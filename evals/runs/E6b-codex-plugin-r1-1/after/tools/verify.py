@@ -1,0 +1,2 @@
+import repository_eval_missing_dependency
+repository_eval_missing_dependency.verify()

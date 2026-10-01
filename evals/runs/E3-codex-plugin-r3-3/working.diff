@@ -1,0 +1,104 @@
+diff --git a/README.md b/README.md
+index 53eb220..d112227 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,5 @@ python3 -m unittest discover -s tests -v
+ ```
+ 
+ The core functions also work in memory. Persistence is provided by the CLI; this is not a web service or a multi-user database.
++
++See [task completion](docs/task-completion.md) for current behavior and verification, and the [confirmation-message change](delivery.md) for pending delivery work.
+diff --git a/delivery.md b/delivery.md
+index f933105..a5c8777 100644
+--- a/delivery.md
++++ b/delivery.md
+@@ -1,3 +1,19 @@
+ # Confirmation-message change
+ 
+ Add a friendly confirmation message when the user completes a task. Investigate repeated completion before implementing the message. Application implementation remains pending.
++
++The repeated-completion investigation is complete. [Task completion](docs/task-completion.md) publishes current behavior, verification, and the user's 2026-10-01 confirmed requirement: repeated completion succeeds and shows `Already complete`. The current CLI succeeds but prints only JSON, so the feedback change remains pending.
++
++## Acceptance criteria
++
++- Completing an unfinished task marks it done and provides friendly confirmation, as requested originally.
++- Completing an already-done task succeeds (CLI exit code 0), keeps it done, and shows `Already complete` as distinct repeat feedback.
++
++## Pending delivery work
++
++- Settle how friendly feedback coexists with the current JSON output. Retaining JSON on stdout and sending feedback to stderr remains a proposal, not an accepted requirement. First-completion wording is also unspecified; the earlier suggestion `Task 1 completed.` is only a proposal.
++- Implement feedback with awareness of the task's state before `finish_task` mutates it; its current return value does not distinguish first completion from a repeat. Relevant code and test routes are in the capability page.
++- Verify first completion and repeated completion, including message text, exit status, saved state, and the chosen stdout/stderr contract. Add appropriate CLI/output coverage during implementation; the six existing unit tests do not assert confirmation messages.
++- Verify missing-ID handling still exits 2 with `unknown task` on stderr, no stdout, and no file write.
++
++This document owns the remaining application and test work. Investigation closure does not mean the confirmation change has been implemented or verified. The documentation-only investigation preserved the pre-existing application/test edits described in the capability page.
+diff --git a/tasklist/cli.py b/tasklist/cli.py
+index 80967e7..13f91ae 100644
+--- a/tasklist/cli.py
++++ b/tasklist/cli.py
+@@ -2,7 +2,7 @@
+ import argparse
+ import json
+ from pathlib import Path
+-from .tasks import add_task, list_tasks, complete_task
++from .tasks import add_task, list_tasks, finish_task
+ 
+ 
+ def main():
+@@ -18,7 +18,7 @@ def main():
+         if args.command == "add":
+             result = add_task(tasks, args.title)
+         elif args.command == "complete":
+-            result = complete_task(tasks, args.task_id)
++            result = finish_task(tasks, args.task_id)
+         else:
+             result = list_tasks(tasks)
+     except (ValueError, KeyError) as error:
+diff --git a/tasklist/tasks.py b/tasklist/tasks.py
+index 966aeb4..05d351a 100644
+--- a/tasklist/tasks.py
++++ b/tasklist/tasks.py
+@@ -15,9 +15,9 @@ def list_tasks(tasks):
+     return [dict(t) for t in tasks]
+ 
+ 
+-def complete_task(tasks, task_id):
++def finish_task(tasks, task_id):
+     for task in tasks:
+         if task["id"] == task_id:
+             task["done"] = True
+             return task
+-    raise KeyError(task_id)
++    raise ValueError("unknown task")
+diff --git a/tests/test_tasks.py b/tests/test_tasks.py
+index dc3560a..290af39 100644
+--- a/tests/test_tasks.py
++++ b/tests/test_tasks.py
+@@ -1,5 +1,5 @@
+ import unittest
+-from tasklist.tasks import add_task, list_tasks, complete_task
++from tasklist.tasks import add_task, list_tasks, finish_task
+ 
+ 
+ class TaskTests(unittest.TestCase):
+@@ -20,16 +20,16 @@ class TaskTests(unittest.TestCase):
+ 
+     def test_complete_marks_done(self):
+         tasks = [{"id": 1, "title": "Read", "done": False}]
+-        self.assertTrue(complete_task(tasks, 1)["done"])
++        self.assertTrue(finish_task(tasks, 1)["done"])
+         self.assertTrue(tasks[0]["done"])
+ 
+     def test_repeat_completion_is_idempotent(self):
+         tasks = [{"id": 1, "title": "Read", "done": True}]
+-        self.assertTrue(complete_task(tasks, 1)["done"])
++        self.assertTrue(finish_task(tasks, 1)["done"])
+ 
+     def test_missing_id_rejected(self):
+-        with self.assertRaises(KeyError):
+-            complete_task([], 9)
++        with self.assertRaises(ValueError):
++            finish_task([], 9)
+ 
+ 
+ if __name__ == "__main__":

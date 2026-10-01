@@ -1,0 +1,99 @@
+diff --git a/README.md b/README.md
+index 53eb220..82643b7 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,5 @@ python3 -m unittest discover -s tests -v
+ ```
+ 
+ The core functions also work in memory. Persistence is provided by the CLI; this is not a web service or a multi-user database.
++
++See [task completion behavior](docs/task-completion.md) for current completion rules and evidence, and the [confirmation-message delivery request](delivery.md) for pending work.
+diff --git a/delivery.md b/delivery.md
+index f933105..9c6f234 100644
+--- a/delivery.md
++++ b/delivery.md
+@@ -1,3 +1,14 @@
+ # Confirmation-message change
+ 
+ Add a friendly confirmation message when the user completes a task. Investigate repeated completion before implementing the message. Application implementation remains pending.
++
++Investigation is complete. The [confirmed requirement, COMPLETE-05](docs/task-completion.md#confirmed-requirement-and-delivery-boundary) records the user's decision on repeated completion. That page distinguishes current JSON output from the required message and documents the existing test coverage. Application implementation remains pending under this delivery request.
++
++Remaining delivery work:
++
++- Implement friendly confirmation for first completion and the confirmed repeated-completion message, preserving successful repeated completion. First-completion wording has not been specified.
++- Distinguish the task's prior completion state before `finish_task` sets `done=True`, or carry that distinction to the CLI message logic. The current returned task alone cannot distinguish first from repeated completion.
++- Add CLI coverage for first and repeated completion, including successful exit, the required repeated-completion wording, and persisted completion state. Preserve core idempotency and missing-ID behavior; run the existing suite and new tests.
++- Update the capability page's current-behavior and verification evidence after implementation. The six existing in-memory tests passed on 2026-10-01, but do not verify CLI output or persistence.
++
++Continue from the existing uncommitted `finish_task` rename and `ValueError("unknown task")` missing-ID change documented in the capability page. Investigation closure made documentation changes only; it did not implement or test the new message.
+diff --git a/tasklist/cli.py b/tasklist/cli.py
+index 80967e7..13f91ae 100644
+--- a/tasklist/cli.py
++++ b/tasklist/cli.py
+@@ -2,7 +2,7 @@
+ import argparse
+ import json
+ from pathlib import Path
+-from .tasks import add_task, list_tasks, complete_task
++from .tasks import add_task, list_tasks, finish_task
+ 
+ 
+ def main():
+@@ -18,7 +18,7 @@ def main():
+         if args.command == "add":
+             result = add_task(tasks, args.title)
+         elif args.command == "complete":
+-            result = complete_task(tasks, args.task_id)
++            result = finish_task(tasks, args.task_id)
+         else:
+             result = list_tasks(tasks)
+     except (ValueError, KeyError) as error:
+diff --git a/tasklist/tasks.py b/tasklist/tasks.py
+index 966aeb4..05d351a 100644
+--- a/tasklist/tasks.py
++++ b/tasklist/tasks.py
+@@ -15,9 +15,9 @@ def list_tasks(tasks):
+     return [dict(t) for t in tasks]
+ 
+ 
+-def complete_task(tasks, task_id):
++def finish_task(tasks, task_id):
+     for task in tasks:
+         if task["id"] == task_id:
+             task["done"] = True
+             return task
+-    raise KeyError(task_id)
++    raise ValueError("unknown task")
+diff --git a/tests/test_tasks.py b/tests/test_tasks.py
+index dc3560a..290af39 100644
+--- a/tests/test_tasks.py
++++ b/tests/test_tasks.py
+@@ -1,5 +1,5 @@
+ import unittest
+-from tasklist.tasks import add_task, list_tasks, complete_task
++from tasklist.tasks import add_task, list_tasks, finish_task
+ 
+ 
+ class TaskTests(unittest.TestCase):
+@@ -20,16 +20,16 @@ class TaskTests(unittest.TestCase):
+ 
+     def test_complete_marks_done(self):
+         tasks = [{"id": 1, "title": "Read", "done": False}]
+-        self.assertTrue(complete_task(tasks, 1)["done"])
++        self.assertTrue(finish_task(tasks, 1)["done"])
+         self.assertTrue(tasks[0]["done"])
+ 
+     def test_repeat_completion_is_idempotent(self):
+         tasks = [{"id": 1, "title": "Read", "done": True}]
+-        self.assertTrue(complete_task(tasks, 1)["done"])
++        self.assertTrue(finish_task(tasks, 1)["done"])
+ 
+     def test_missing_id_rejected(self):
+-        with self.assertRaises(KeyError):
+-            complete_task([], 9)
++        with self.assertRaises(ValueError):
++            finish_task([], 9)
+ 
+ 
+ if __name__ == "__main__":

@@ -1,0 +1,22 @@
+diff --git a/README.md b/README.md
+index 53eb220..15b0d12 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,5 @@ python3 -m unittest discover -s tests -v
+ ```
+ 
+ The core functions also work in memory. Persistence is provided by the CLI; this is not a web service or a multi-user database.
++
++See [task completion](docs/task-completion.md) for current completion behavior and test coverage. The [confirmation-message change](delivery.md) tracks pending delivery work.
+diff --git a/delivery.md b/delivery.md
+index f933105..f1fcdf5 100644
+--- a/delivery.md
++++ b/delivery.md
+@@ -1,3 +1,7 @@
+ # Confirmation-message change
+ 
+ Add a friendly confirmation message when the user completes a task. Investigate repeated completion before implementing the message. Application implementation remains pending.
++
++The [completion findings](docs/task-completion.md) establish that repeated completion succeeds today and has explicit core test coverage. Preserve that behavior for this message change unless a requirement explicitly changes it. A special repeat message is not established by the available evidence.
++
++The [unfinished investigation](docs/work/investigation/repeated-completion.md) records the message decision awaiting the user and the next actions. Implementation and message tests remain owned by this delivery task, after that decision; neither has been changed during discovery.

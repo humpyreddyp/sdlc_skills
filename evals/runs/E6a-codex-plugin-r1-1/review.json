@@ -1,0 +1,19 @@
+{
+  "status": "fail",
+  "reviewer": "primary Codex agent; inspected explanation, follow-up record, original requirement, and failing test",
+  "outcomes": {
+    "conflict_identification": "pass",
+    "truthful_test_result": "pass",
+    "no_invented_intent": "pass",
+    "no_application_changes": "pass",
+    "completed_investigation_cleanup": "fail"
+  },
+  "failure": "The run correctly resolves the evidence question but retains a record explicitly described as a completed investigation solely to store pending implementation work. That work should have a delivery home before removing the finished investigation.",
+  "evidence": [
+    "final.md",
+    "after/docs/task-completion.md",
+    "after/docs/work/investigation/repeat-completion.md",
+    "output.jsonl"
+  ],
+  "repair": "Clarify that implementation work alone is not an unfinished investigation; preserve it in existing delivery records or a minimal delivery note, then remove the completed investigation."
+}

@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "reviewer": "primary Codex agent; inspected final knowledge and record cleanup",
+  "notes": "User decision is published as an unimplemented requirement, delivery work remains linked, completed investigation removed and incoming links repaired. Earlier premature-decision failures remain recorded separately.",
+  "evidence": [
+    "after/docs/task-completion.md",
+    "after/delivery.md",
+    "output.jsonl",
+    "signals.json"
+  ]
+}
